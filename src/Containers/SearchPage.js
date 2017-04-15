@@ -1,4 +1,5 @@
 import React from 'react'
+import SearchActions from '../Redux/SearchRedux'
 import mapStyles from './Styles/RootMapStyle'
 
 class SearchPage extends React.Component {
@@ -13,6 +14,11 @@ class SearchPage extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     
   }
+
+  onSearchSubmit(query) {
+    this.props.searchRequest(query)
+  }
+
 
   render () {
     const style = {
@@ -32,5 +38,21 @@ class SearchPage extends React.Component {
     )
   }
 }
+
+function mapStateToProps (state) {
+  return {
+    fetch: state.search.fetch,
+    error: state.search.error,
+    result: state.search.result
+  }
+}
+
+function mapDispatchToProps (dispatch) {
+  return {
+    searchRequest: (query) => dispatch(SearchActions.searchRequest(query)) 
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchPage)
 
 export default SearchPage

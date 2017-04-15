@@ -3,7 +3,7 @@ import { createReducer, createActions } from 'reduxsauce'
 
 /* ------------- Types and Action Creators ------------- */
 const { Types, Creators } = createActions({
-  searchRequest: [],
+  searchRequest: ['query'],
   searchSuccess: ['data'],
   searchFailure: ['error']
 })
@@ -20,15 +20,16 @@ const INITIAL_STATE = Immutable({
 /* ------------- Reducers ------------- */
 
 
-export const searchRequest = (state, {}) => {
-  return state.merge()
+export const searchRequest = (state, {query}) => {
+  return state.merge({fetch: true, error: null})
 }
+
 export const searchSuccess = (state, {data}) => {
-  return state.merge()
+  return state.merge({fetch: false, error: null})
 }
 
 export const searchFailure = (state, {error}) => {
-  return state.merge()
+  return state.merge({fetch: false, error})
 }
 
 /* ------------- Hookup Reducers To Types ------------- */
