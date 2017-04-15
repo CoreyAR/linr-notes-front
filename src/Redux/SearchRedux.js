@@ -14,7 +14,13 @@ export default Creators
 /* ------------- Initial State ------------- */
 
 const INITIAL_STATE = Immutable({
-  submission: []
+  fetch: false,
+  error: null,
+  result: {
+    artist: 'Greenday',
+    albumTitle: 'Dookie',
+    artwork: 'https://upload.wikimedia.org/wikipedia/en/4/4b/Green_Day_-_Dookie_cover.jpg'
+  }
 })
 
 /* ------------- Reducers ------------- */

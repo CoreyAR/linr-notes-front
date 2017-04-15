@@ -1,0 +1,20 @@
+.inputs {
+	display: flex;
+	flex: 1;
+	flex-direction: row;
+	justify-content: flex-start;
+
+	& > div {
+		padding-right: 25px;
+	}
+
+	& > div > p {
+		margin-bottom: 0;
+		color: rgba(0, 0, 0, 0.870588);
+		font-size: 14px;
+	}
+}
+
+.hover {
+	cursor: pointer;
+}

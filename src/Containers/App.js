@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import Header from '../Components/Header.js'
 // Grid Styles for Whole App
-// require('!style!css!sass!./../Styles/main.scss')
+require('./../Styles/main.scss')
 /**
  * Application component
  *
@@ -19,7 +19,7 @@ class App extends React.Component {
       <div >
         <Header />
         <div className='container'>
-          <div className='row col-sm-12'>
+          <div className='row'>
             {this.props.children}
           </div>
         </div>
