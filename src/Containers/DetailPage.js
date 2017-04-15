@@ -1,4 +1,5 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import mapStyles from './Styles/RootMapStyle'
 
 class DetailPage extends React.Component {
@@ -11,7 +12,7 @@ class DetailPage extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    
+
   }
 
 

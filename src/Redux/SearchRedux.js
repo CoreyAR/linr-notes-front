@@ -1,5 +1,5 @@
 import Immutable from 'seamless-immutable'
-import { createReducer, createActions } from 'reduxsauce'
+import {createReducer, createActions} from 'reduxsauce'
 
 /* ------------- Types and Action Creators ------------- */
 const { Types, Creators } = createActions({
@@ -19,17 +19,16 @@ const INITIAL_STATE = Immutable({
 
 /* ------------- Reducers ------------- */
 
-
 export const searchRequest = (state, {query}) => {
-  return state.merge({fetch: true, error: null})
+  return state.merge({fetch: true, error: false, loading: true})
 }
 
 export const searchSuccess = (state, {data}) => {
-  return state.merge({fetch: false, error: null})
+  return state.merge({fetch: false, error: false, result: data, loading: false})
 }
 
 export const searchFailure = (state, {error}) => {
-  return state.merge({fetch: false, error})
+  return state.merge({fetch: false, error: error.message, loading: false})
 }
 
 /* ------------- Hookup Reducers To Types ------------- */

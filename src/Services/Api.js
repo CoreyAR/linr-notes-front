@@ -2,7 +2,7 @@ import apisauce from 'apisauce'
 
 // const base = (Platform.OS === 'ios') ? Config.IOS_BASE_URL : Config.ANDROID_BASE_URL
 
-const create = (baseURL = '/test') => {
+const create = (baseURL = 'http://localhost:5000') => {
   // let headers = localStorage.token ? {'Authorization': `Token ${localStorage.token}`} : {}
   const api = apisauce.create({
     // base URL is read from the "constructor"
@@ -13,12 +13,9 @@ const create = (baseURL = '/test') => {
     timeout: 10000
   })
 
-  // api.addAsyncRequestTransform(request => async () => {
-  //   // const token = JSON.parse(localStorage.getItem('token'))
-  // })
   // Original Paths
-  const search = async (search) => {
-    return
+  const search = (query) => {
+    return api.get(`search?track=${query}`)
   }
 
 
