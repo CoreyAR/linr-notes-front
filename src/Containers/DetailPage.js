@@ -34,4 +34,16 @@ class DetailPage extends React.Component {
   }
 }
 
-export default DetailPage
+function mapStateToProps (state) {
+  return {
+  }
+}
+
+function mapDispatchToProps (dispatch) {
+  return {
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DetailPage)
+
+

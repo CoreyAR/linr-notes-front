@@ -17,7 +17,7 @@ class App extends React.Component {
   render () {
     return (
       <div >
-        <Header logged={this.props.logged}/>
+        <Header />
         <div className='container'>
           <div className='row col-sm-12'>
             {this.props.children}

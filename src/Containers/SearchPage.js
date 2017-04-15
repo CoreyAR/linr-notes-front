@@ -1,6 +1,7 @@
 import React from 'react'
 import SearchForm from '../Components/SearchForm';
 import SearchResults from '../Components/SearchResults';
+import SearchActions from '../Redux/SearchRedux'
 
 class SearchPage extends React.Component {
 
@@ -10,6 +11,11 @@ class SearchPage extends React.Component {
   componentDidUpdate(prevProps, prevState) {
 
   }
+
+  onSearchSubmit(query) {
+    this.props.searchRequest(query)
+  }
+
 
   render () {
     return (
@@ -21,5 +27,21 @@ class SearchPage extends React.Component {
     )
   }
 }
+
+function mapStateToProps (state) {
+  return {
+    fetch: state.search.fetch,
+    error: state.search.error,
+    result: state.search.result
+  }
+}
+
+function mapDispatchToProps (dispatch) {
+  return {
+    searchRequest: (query) => dispatch(SearchActions.searchRequest(query))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchPage)
 
 export default SearchPage
