@@ -18,7 +18,7 @@ class _DetailPage extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    
+
   }
 
 

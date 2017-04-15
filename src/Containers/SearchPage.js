@@ -1,8 +1,7 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import SearchForm from '../Components/SearchForm'
 import SearchActions from '../Redux/SearchRedux'
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
+import {connect} from 'react-redux'
 
 class SearchPage extends React.Component {
   constructor(props) {
@@ -14,28 +13,15 @@ class SearchPage extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    
-  }
 
-  onSearchSubmit(query) {
-    this.props.searchRequest(query)
   }
 
 
   render () {
-    const style = {
-  
-    }
-
     return (
       <div>
-      <h1>SearchPage</h1>
-          <TextField
-      defaultValue="Default Value"
-      floatingLabelText="Floating Label Text"
-    />
-    <RaisedButton label="Primary" primary={true} style={style} onTouchTap={this.onSearchSubmit.bind(this)}/>
-    <h2>{this.props.result}</h2>
+        <h1>SearchPage</h1>
+        <SearchForm searchRequest={this.props.searchRequest}/>
       </div>
     )
   }
@@ -51,7 +37,7 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
   return {
-    searchRequest: (query) => dispatch(SearchActions.searchRequest(query)) 
+    searchRequest: (query) => dispatch(SearchActions.searchRequest(query))
   }
 }
 
