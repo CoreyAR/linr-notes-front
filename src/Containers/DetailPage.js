@@ -1,28 +1,26 @@
 import React from 'react'
-import {API_KEY} from './../env'
-import Map, {GoogleApiWrapper, Marker, InfoWindow, HeatmapOverlay} from '../Components/Map'
 import mapStyles from './Styles/RootMapStyle'
 
-var _RootMap = React.createClass({
+class DetailPage extends React.Component {
   getInitialState () {
     return {
       activeMarker: null,
       lat: 36.1639,
       lng: -86.7817
     }
-  },
+  }
 
   componentWillReceiveProps (nextProps) {
-  },
+  }
 
   componentDidUpdate(prevProps, prevState) {
     
-  },
+  }
 
   onMarkerClick: function (props, marker, e) {
     this.setState({
     })
-  },
+  }
 
   render () {
     const style = {
@@ -37,20 +35,8 @@ var _RootMap = React.createClass({
 
     return (
 
-      <Map
-        style={style}
-        onReady={this.fetchPlaces}
-        google={this.props.google}
-        zoom={14}
-        initialCenter={{lat: this.state.lat,lng: this.state.lng}}
-        center={null}
-        mapStyles={mapStyles}
-      >
-      </Map>
     )
   }
-})
+}
 
-export default GoogleApiWrapper({
-  apiKey: API_KEY, libraries: ['places']
-})(_RootMap)
+export default DetailPage
