@@ -21,7 +21,7 @@ class _DetailPage extends React.Component {
     const result = data[0]
 
     return (
-      <div className={'row'}>
+      <div className={'row'} style={{marginTop: '32px'}}>
         <div className={'col s6'}>
          <Card style={{width:'400px',}}>
           <CardMedia
@@ -39,26 +39,11 @@ class _DetailPage extends React.Component {
             
           </CardText>
         </Card>
-          <Map
-            style={{height: '300px', width: '300px',}}
-            onReady={this.fetchPlaces}
-            google={this.props.google}
-            zoom={14}
-            initialCenter={{lat: this.state.lat, lng: this.state.lng}}
-            center={null}
-            mapStyles={mapStyles}
-          >
-            <Marker
-                key={Math.random()}
-                // position={{lat: this.state.lat, lng: this.state.lng}}
-                onClick={this.onMarkerClick}
-             />
-          </Map>
         </div>
         <div className={'col s6'}>
         {
           result.tracks.map((t, i) => {
-              // console.log(t)
+              console.log(t)
               return (
                 <Card
                   
@@ -72,11 +57,12 @@ class _DetailPage extends React.Component {
                 <CardText expandable={true}>
                   <ul>
                 {t.recording['artist-relation-list'].map((a, i) => {
-                  console.log(a)
-                  return 
+                  // console.log(a)
+                  return (
                   <li key={i}>
-                    <p>{a.artist.name}</p>
+                    <p>{a.artist.name} - {a['attribute-list'] ? a['attribute-list'].join(', ') : a.type}</p>
                   </li>
+                  )
                 })}
                 </ul>
                 </CardText>
