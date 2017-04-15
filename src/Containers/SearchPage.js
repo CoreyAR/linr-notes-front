@@ -11,7 +11,7 @@ class SearchPage extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    
+
   }
 
   render () {
@@ -27,7 +27,7 @@ class SearchPage extends React.Component {
 
     return (
       <div>
-      <h1>SearchPage</h1>
+        <h1>SearchPage</h1>
       </div>
     )
   }
