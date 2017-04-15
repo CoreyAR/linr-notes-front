@@ -4,22 +4,14 @@ import mapStyles from './Styles/RootMapStyle'
 class SearchPage extends React.Component {
   getInitialState () {
     return {
-      activeMarker: null,
-      lat: 36.1639,
-      lng: -86.7817
     }
-  },
+  }
 
   componentWillReceiveProps (nextProps) {
   }
 
   componentDidUpdate(prevProps, prevState) {
     
-  }
-
-  onMarkerClick: function (props, marker, e) {
-    this.setState({
-    })
   }
 
   render () {
@@ -34,6 +26,9 @@ class SearchPage extends React.Component {
     }
 
     return (
+      <div>
+      <h1>SearchPage</h1>
+      </div>
     )
   }
 }

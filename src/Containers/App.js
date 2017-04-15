@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import Header from '../Components/Header.js'
 // Grid Styles for Whole App
-require('!style!css!sass!./../Styles/main.scss')
+// require('!style!css!sass!./../Styles/main.scss')
 /**
  * Application component
  *
@@ -30,7 +30,6 @@ class App extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    logged: !!state.user.token
   }
 }
 

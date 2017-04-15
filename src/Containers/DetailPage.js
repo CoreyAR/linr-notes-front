@@ -4,9 +4,6 @@ import mapStyles from './Styles/RootMapStyle'
 class DetailPage extends React.Component {
   getInitialState () {
     return {
-      activeMarker: null,
-      lat: 36.1639,
-      lng: -86.7817
     }
   }
 
@@ -17,10 +14,6 @@ class DetailPage extends React.Component {
     
   }
 
-  onMarkerClick: function (props, marker, e) {
-    this.setState({
-    })
-  }
 
   render () {
     const style = {
@@ -34,7 +27,9 @@ class DetailPage extends React.Component {
     }
 
     return (
-
+      <div>
+        <h1>DetailPage</h1>
+      </div>
     )
   }
 }
