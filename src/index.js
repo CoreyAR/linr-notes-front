@@ -31,7 +31,7 @@ render((
         <Route path='/' component={App} >
           <IndexRoute component={SearchPage} />
         </Route>
-        <Route path="detail" component={DetailPage} />
+        <Route path="songs" component={DetailPage} />
           <Redirect from='*' to='/' />
 
       </Router>

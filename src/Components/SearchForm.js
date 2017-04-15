@@ -1,29 +1,34 @@
 import React from 'react'
-import RaisedButton from 'material-ui/RaisedButton';
+import RaisedButton from 'material-ui/RaisedButton'
+import TextField from 'material-ui/TextField'
 
 class SearchForm extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {}
+  }
 
   componentWillReceiveProps (nextProps) {
   }
 
   componentDidUpdate(prevProps, prevState) {
+  }
 
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
   }
 
   render () {
 
     return (
         <form>
-          <label htmlFor="artistSearch">Artist</label>
-          <input type="text" name="artistSearch" id="artistSearch" />
-          <br/>
-          <label htmlFor="songSearch">Song</label>
-          <input type="text" name="songSearch" id="songSearch" />
-          <br/>
           <label htmlFor="spotifyUriSearch">Spotify URI (song URIs only)</label>
-          <input type="text" name="spotifyUriSearch" id="spotifyUriSearch" />
           <br/>
-          <RaisedButton>Submit</RaisedButton>
+          <TextField onChange={this.handleChange.bind(this)} name="spotifyUriSearch" />
+          <br/>
+          <RaisedButton onClick={() => this.props.onSearchSubmit(this.state)}>Submit</RaisedButton>
         </form>
     )
   }

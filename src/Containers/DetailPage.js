@@ -1,6 +1,6 @@
 import React from 'react'
-import mapStyles from './Styles/RootMapStyle'
 import {connect} from 'react-redux'
+import mapStyles from './Styles/RootMapStyle'
 
 class DetailPage extends React.Component {
   getInitialState () {

@@ -1,10 +1,14 @@
 import React from 'react'
-import SearchForm from '../Components/SearchForm';
-import SearchResults from '../Components/SearchResults';
+import SearchForm from '../Components/SearchForm'
+import SearchResults from '../Components/SearchResults'
 import SearchActions from '../Redux/SearchRedux'
 import {connect} from 'react-redux'
 
 class SearchPage extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {}
+  }
 
   componentWillReceiveProps (nextProps) {
   }
@@ -22,7 +26,7 @@ class SearchPage extends React.Component {
     return (
       <div>
         <h1>SearchPage</h1>
-        <SearchForm />
+        <SearchForm onSearchSubmit={this.onSearchSubmit.bind(this)}/>
         <SearchResults />
       </div>
     )

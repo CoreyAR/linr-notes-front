@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware } from 'redux'
-import createLogger from 'redux-logger'
+import {createLogger} from 'redux-logger'
 import createSagaMiddleware from 'redux-saga'
 import API from '../Services/Api'
 import R from 'ramda'
@@ -19,15 +19,13 @@ export default (rootReducer, rootSaga) => {
   middleware.push(sagaMiddleware)
 
   /* ------------- Logger Middleware ------------- */
-  const SAGA_LOGGING_BLACKLIST = ['EFFECT_TRIGGERED', 'EFFECT_RESOLVED', 'EFFECT_REJECTED', 'persist/REHYDRATE']
 
-  if (process.env.__DEV__) {
+
     const USE_LOGGING = true
     const logger = createLogger({
-      predicate: (getState, { type }) => USE_LOGGING && R.not(R.contains(type, SAGA_LOGGING_BLACKLIST))
+      predicate: (getState, { type }) => USE_LOGGING
     })
     middleware.push(logger)
-  }
 
 
   /* ------------- AutoRehydrate Enhancer ------------- */
