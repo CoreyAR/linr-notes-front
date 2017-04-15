@@ -13,12 +13,9 @@ const create = (baseURL = 'http://localhost:5000') => {
     timeout: 10000
   })
 
-  // api.addAsyncRequestTransform(request => async () => {
-  //   // const token = JSON.parse(localStorage.getItem('token'))
-  // })
   // Original Paths
   const search = (query) => {
-    return api.post('search', {query})
+    return api.get(`search?track=${query}`)
   }
 
 
