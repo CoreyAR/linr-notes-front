@@ -14,13 +14,13 @@ class SearchForm extends React.Component {
 
     return (
         <form>
-          <label for="artistSearch">Artist</label>
+          <label htmlFor="artistSearch">Artist</label>
           <input type="text" name="artistSearch" id="artistSearch" />
           <br/>
-          <label for="songSearch">Song</label>
+          <label htmlFor="songSearch">Song</label>
           <input type="text" name="songSearch" id="songSearch" />
           <br/>
-          <label for="spotifyUriSearch">Spotify URI (song URIs only)</label>
+          <label htmlFor="spotifyUriSearch">Spotify URI (song URIs only)</label>
           <input type="text" name="spotifyUriSearch" id="spotifyUriSearch" />
           <br/>
           <RaisedButton>Submit</RaisedButton>

@@ -1,5 +1,6 @@
 import React from 'react'
 import mapStyles from './Styles/RootMapStyle'
+import {connect} from 'react-redux'
 
 class DetailPage extends React.Component {
   getInitialState () {
@@ -11,7 +12,7 @@ class DetailPage extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    
+
   }
 
 

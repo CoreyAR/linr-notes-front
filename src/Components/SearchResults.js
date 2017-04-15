@@ -11,11 +11,7 @@ class SearchResults extends React.Component {
   }
 
   render () {
-    let rows = [];
-    this.props.results.forEach((val) => {
-      rows.push(<li>val</li>);
-    })
-    console.log(rows);
+    let rows = [<li>test</li>, <li>test2</li>];
 
     return (
       <div>

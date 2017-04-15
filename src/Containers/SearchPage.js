@@ -2,6 +2,7 @@ import React from 'react'
 import SearchForm from '../Components/SearchForm';
 import SearchResults from '../Components/SearchResults';
 import SearchActions from '../Redux/SearchRedux'
+import {connect} from 'react-redux'
 
 class SearchPage extends React.Component {
 
@@ -43,5 +44,3 @@ function mapDispatchToProps (dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchPage)
-
-export default SearchPage
