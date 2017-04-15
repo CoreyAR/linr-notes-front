@@ -1,5 +1,6 @@
 import React from 'react'
 import mapStyles from './Styles/RootMapStyle'
+import RaisedButton from 'material-ui/RaisedButton'
 
 class SearchPage extends React.Component {
   getInitialState () {
@@ -28,6 +29,18 @@ class SearchPage extends React.Component {
     return (
       <div>
         <h1>SearchPage</h1>
+        <form>
+          <label for="artistSearch">Artist</label>
+          <input type="text" name="artistSearch" id="artistSearch" />
+          <br/>
+          <label for="songSearch">Song</label>
+          <input type="text" name="songSearch" id="songSearch" />
+          <br/>
+          <label for="spotifyUriSearch">Spotify URI</label>
+          <input type="text" name="spotifyUriSearch" id="spotifyUriSearch" />
+          <br/>
+          <RaisedButton>Submit</RaisedButton>
+        </form>
       </div>
     )
   }
