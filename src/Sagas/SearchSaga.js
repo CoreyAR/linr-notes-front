@@ -7,12 +7,12 @@ export function * search (api, action) {
     try {
       const resp = yield call(api.search)
       if (resp.status === 200) {
-        put(SearchActions.payrollTypeSuccess(resp.data))
+        put(SearchActions.searchSuccess(resp.data))
       } else {
         throw new Error(resp.problem)
       }
     } catch (e) {
-      put(SearchActions.payrollTypeFailure(e))
+      put(SearchActions.searchFailure(e))
     }
   }
 
