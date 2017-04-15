@@ -8,7 +8,7 @@ class Header extends React.Component {
 		<div>
 			<AppBar
         title="Linr Notes"
-      	iconElementRight={<IconButton iconClassName="fa fa-github" color={'white'} href="https://github.com/CoreyAR/community-mapping-hackathon/tree/legal-hack"/>}
+      	iconElementRight={<IconButton iconClassName="fa fa-github" color={'white'} href="https://github.com/CoreyAR/linr-notes-front"/>}
       />
 		</div>
 		)
