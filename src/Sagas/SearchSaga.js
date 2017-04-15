@@ -6,7 +6,8 @@ export function * search (api, action) {
   if (action.type === 'SEARCH_REQUEST') {
     try {
       const resp = yield call(api.search)
-      console.log(resp)
+
+
       if (resp.status === 200) {
         put(SearchActions.searchSuccess(resp.data))
       } else {

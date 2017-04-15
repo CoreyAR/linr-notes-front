@@ -1,6 +1,5 @@
 import React from 'react'
 import SearchForm from '../Components/SearchForm'
-import SearchResults from '../Components/SearchResults'
 import SearchActions from '../Redux/SearchRedux'
 import {connect} from 'react-redux'
 
@@ -17,17 +16,12 @@ class SearchPage extends React.Component {
 
   }
 
-  onSearchSubmit(query) {
-    this.props.searchRequest(query)
-  }
-
 
   render () {
     return (
       <div>
         <h1>SearchPage</h1>
-        <SearchForm onSearchSubmit={this.onSearchSubmit.bind(this)}/>
-        <SearchResults />
+        <SearchForm searchRequest={this.props.searchRequest}/>
       </div>
     )
   }

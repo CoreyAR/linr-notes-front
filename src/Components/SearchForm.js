@@ -28,7 +28,7 @@ class SearchForm extends React.Component {
           <br/>
           <TextField onChange={this.handleChange.bind(this)} name="spotifyUriSearch" />
           <br/>
-          <RaisedButton onClick={() => this.props.onSearchSubmit(this.state)}>Submit</RaisedButton>
+          <RaisedButton onClick={() => this.props.searchRequest(this.state.spotifyUriSearch)}>Submit</RaisedButton>
         </form>
     )
   }
