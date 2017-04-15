@@ -1,11 +1,13 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import SearchActions from '../Redux/SearchRedux'
-import mapStyles from './Styles/RootMapStyle'
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class SearchPage extends React.Component {
-  getInitialState () {
-    return {
-    }
+  constructor(props) {
+    super(props)
+    this.state = {}
   }
 
   componentWillReceiveProps (nextProps) {
@@ -22,18 +24,18 @@ class SearchPage extends React.Component {
 
   render () {
     const style = {
-      position: 'absolute',
-      top: '0',
-      right: '0',
-      bottom: '0',
-      left: '0',
-      width: '100%',
-      height: '100%'
+  
     }
 
     return (
       <div>
       <h1>SearchPage</h1>
+          <TextField
+      defaultValue="Default Value"
+      floatingLabelText="Floating Label Text"
+    />
+    <RaisedButton label="Primary" primary={true} style={style} onTouchTap={this.onSearchSubmit.bind(this)}/>
+    <h2>{this.props.result}</h2>
       </div>
     )
   }
@@ -54,5 +56,3 @@ function mapDispatchToProps (dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchPage)
-
-export default SearchPage

@@ -30,7 +30,7 @@ render((
       <Router history={browserHistory}>
         <Route path='/' component={App} >
           <IndexRoute component={SearchPage} />
-          <IndexRoute component={DetailPage} />
+          <Route path='songs' component={DetailPage} />
           <Redirect from='*' to='/' />
         </Route>
         
