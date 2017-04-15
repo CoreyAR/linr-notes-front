@@ -10,7 +10,7 @@ const create = (baseURL = 'http://localhost:5000') => {
     // here are some default headers
     // headers,
     // 10 second timeout...
-    timeout: 10000
+    timeout: 10000000000
   })
 
   // Original Paths

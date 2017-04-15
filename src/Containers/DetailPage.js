@@ -1,9 +1,11 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Card, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardMedia, CardHeader, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import Map, {GoogleApiWrapper, Marker} from '../Components/Map'
 import mapStyles from './Styles/RootMapStyle'
+import data from '../Data/example.json'
+
 
 class _DetailPage extends React.Component {
   constructor(props) {
@@ -14,34 +16,31 @@ class _DetailPage extends React.Component {
     }
   }
 
-  componentWillReceiveProps (nextProps) {
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-
-  }
-
 
   render () {
+    const result = data[0]
 
     return (
       <div className={'row'}>
         <div className={'col s6'}>
          <Card style={{width:'400px',}}>
           <CardMedia
-            overlay={<CardTitle title={this.props.result.albumTitle} subtitle={this.props.result.artist}/>}
+            overlay={<CardTitle title={result.title} subtitle={result.artist}/>}
           >
-            <img src={this.props.result.artwork}  />
+            <img src={result.image}  />
           </CardMedia>
-          <CardTitle title="Card title" subtitle="Card subtitle" />
           <CardText>
+          <div style={{ display: 'flex', justifyContent: 'space-between'}}>
+            <p>Release Date</p><p>{result.release_date}</p>
+          </div>
+          <div style={{borderBottom: '1px solid grey', display: 'flex', justifyContent: 'space-between'}}>
+            <p>Labels</p><p>{result.labels[0]}</p>
+          </div>
             
           </CardText>
         </Card>
-        </div>
-        <div className={'col s6'}>
           <Map
-            style={{height: '200px', width: '200px',}}
+            style={{height: '300px', width: '300px',}}
             onReady={this.fetchPlaces}
             google={this.props.google}
             zoom={14}
@@ -55,6 +54,36 @@ class _DetailPage extends React.Component {
                 onClick={this.onMarkerClick}
              />
           </Map>
+        </div>
+        <div className={'col s6'}>
+        {
+          result.tracks.map((t, i) => {
+              // console.log(t)
+              return (
+                <Card
+                  
+                  key={i}
+                >
+              <CardHeader
+                  title={t.recording.title}
+                actAsExpander
+                showExpandableButton
+                />
+                <CardText expandable={true}>
+                  <ul>
+                {t.recording['artist-relation-list'].map((a, i) => {
+                  console.log(a)
+                  return 
+                  <li key={i}>
+                    <p>{a.artist.name}</p>
+                  </li>
+                })}
+                </ul>
+                </CardText>
+                </Card>
+              )
+          })
+        }
           </div>
         
       </div>

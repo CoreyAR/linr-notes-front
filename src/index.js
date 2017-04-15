@@ -30,9 +30,10 @@ render((
       <Router history={browserHistory}>
         <Route path='/' component={App} >
           <IndexRoute component={SearchPage} />
+          <Route path="songs" component={DetailPage} />
         </Route>
-        <Route path="songs" component={DetailPage} />
-          <Redirect from='*' to='/' />
+        
+        <Redirect from='*' to='/' />
 
       </Router>
     </Provider>

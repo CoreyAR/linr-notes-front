@@ -30,6 +30,7 @@ export const searchRequest = (state, {query}) => {
 }
 
 export const searchSuccess = (state, {data}) => {
+  data = data[0]
   return state.merge({fetch: false, error: null, result: data})
 }
 
